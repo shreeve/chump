@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name        = "chump"
-  s.version     = "0.5.0"
+  s.version     = "0.5.1"
   s.author      = "Steve Shreeve"
   s.email       = "steve.shreeve@gmail.com"
   s.summary     = "Chump is an interactive session scripting tool"
