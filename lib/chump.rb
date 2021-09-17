@@ -188,7 +188,7 @@ class Chump
           back = item
           talk = !talk if item.nil?
           break
-        when String, Fixnum, Float # [literal]
+        when String, Integer, Float # [literal]
           item = item.to_s
           if talk # talker
             send(item)
@@ -221,7 +221,7 @@ class Chump
               next
             when Symbol # yielder
               case val
-              when String, Fixnum, Float # comparer
+              when String, Integer, Float # comparer
                 val = val.to_s
                 if index = @buff.index(val)
                   back = @buff.slice!(0..(index + val.size - 1))
@@ -242,7 +242,7 @@ class Chump
               else
                 raise "Hash symbols don't support #{val.class} matchers"
               end
-            when String, Fixnum, Float, Regexp # comparer/matcher (ugly, but shares actions)
+            when String, Integer, Float, Regexp # comparer/matcher (ugly, but shares actions)
               key = key.to_s unless regx = key.is_a?(Regexp)
               if fast
                 back = :else
@@ -258,7 +258,7 @@ class Chump
               end
               unless regx.nil?
                 case val
-                when String, Fixnum, Float
+                when String, Integer, Float
                   send(val.to_s)
                 when Array
                   back = chat(nil, *val) unless val.empty?
